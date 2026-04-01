@@ -154,6 +154,58 @@ const products = [
     reviews: 61,
     inStock: true,
     badge: "Gift Ready"
+  },
+  {
+    id: "13",
+    name: "Lord Jagannath Pattachitra",
+    description: "Authentic Raghurajpur-style Pattachitra painting of Lord Jagannath. Hand-painted on treated tussar silk cloth using natural colors. A divine masterpiece from Odisha's 800-year-old art tradition.",
+    price: 2499,
+    category: "Pattachitra",
+    image: "🙏",
+    gradient: "linear-gradient(135deg, #d4a373 0%, #b8860b 50%, #ff6b35 100%)",
+    rating: 5.0,
+    reviews: 203,
+    inStock: true,
+    badge: "Signature Piece"
+  },
+  {
+    id: "14",
+    name: "Dashavatar Pattachitra",
+    description: "Exquisite depiction of the ten avatars of Lord Vishnu in traditional Pattachitra style. Hand-painted on canvas using natural stone colors and vegetable dyes. Size: 45cm × 60cm.",
+    price: 3499,
+    category: "Pattachitra",
+    image: "🎭",
+    gradient: "linear-gradient(135deg, #b8860b 0%, #cd853f 50%, #daa520 100%)",
+    rating: 4.9,
+    reviews: 87,
+    inStock: true,
+    badge: "Exclusive"
+  },
+  {
+    id: "15",
+    name: "Traditional Odisha Palm Leaf Etching",
+    description: "Ancient palm leaf manuscript art (Tala Patra Chitra) featuring mythological scenes. Etched by hand using iron stylus on dried palm leaves. Museum-quality traditional art.",
+    price: 1899,
+    category: "Pattachitra",
+    image: "🌴",
+    gradient: "linear-gradient(135deg, #8B7355 0%, #D2B48C 50%, #c4956a 100%)",
+    rating: 4.8,
+    reviews: 64,
+    inStock: true,
+    badge: "Heritage Art"
+  },
+  {
+    id: "16",
+    name: "Pipili Appliqué Wall Hanging",
+    description: "Vibrant Pipili appliqué art from Odisha featuring traditional motifs. Handstitched by master craftswomen using colorful fabric cutouts on contrasting base. Size: 50cm × 75cm.",
+    price: 1799,
+    category: "Textile & Fiber",
+    image: "🪭",
+    gradient: "linear-gradient(135deg, #ff6b6b 0%, #ffd93d 50%, #6bcb77 100%)",
+    rating: 4.7,
+    reviews: 92,
+    inStock: true,
+    badge: "Odisha Special"
   }
 ];
 

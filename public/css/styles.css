@@ -1727,3 +1727,275 @@ input, textarea, select { font-family: inherit; }
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }
+
+/* ═══════════════ LOCATION TAG ═══════════════ */
+.location-tag {
+  display: block;
+  letter-spacing: 6px;
+  font-weight: 600;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+  animation: fadeInUp 1s ease 0.05s both;
+}
+
+/* ═══════════════ WELCOME FLOATING MESSAGE ═══════════════ */
+.welcome-float {
+  position: fixed;
+  bottom: 100px;
+  left: -400px;
+  max-width: 320px;
+  background: rgba(24, 24, 27, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-light);
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  z-index: 2000;
+  transition: left 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.welcome-float.show {
+  left: 30px;
+}
+
+.welcome-float h4 {
+  font-family: 'Playfair Display', var(--font-heading), serif;
+  color: var(--accent-gold);
+  font-size: 1.15rem;
+}
+
+.welcome-float p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ═══════════════ WHATSAPP FLOATING BUTTONS ═══════════════ */
+.wa-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1500;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: fadeInUp 0.6s ease 1.5s both;
+}
+
+.wa-btn {
+  background: #25d366;
+  color: white;
+  padding: 12px 22px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+}
+
+.wa-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+  background: #22c55e;
+}
+
+.wa-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.wa-btn svg {
+  flex-shrink: 0;
+}
+
+/* ═══════════════ REQUEST DETAILS BUTTON ═══════════════ */
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #25d366;
+  color: white;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.btn-whatsapp:hover {
+  background: #22c55e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+/* ─── Mobile adjustments for floating elements ─── */
+@media (max-width: 640px) {
+  .wa-container {
+    bottom: 20px;
+    right: 16px;
+  }
+
+  .wa-btn {
+    padding: 10px 16px;
+    font-size: 0.8rem;
+  }
+
+  .welcome-float {
+    max-width: 260px;
+    bottom: 80px;
+    padding: 18px;
+  }
+
+  .welcome-float.show {
+    left: 16px;
+  }
+
+  .location-tag {
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+  }
+}
+
+/* ═══════════════ STORE PARTNERS SECTION ═══════════════ */
+.partner-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 48px 32px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-light);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.partner-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  background: var(--gradient-accent);
+  border-radius: 0 0 4px 4px;
+}
+
+.partner-heading {
+  font-family: 'Playfair Display', var(--font-heading), serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.partner-badge {
+  color: var(--accent-gold);
+  letter-spacing: 4px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+.partner-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.partner-card {
+  text-align: center;
+  padding: 24px;
+  transition: var(--transition-smooth);
+}
+
+.partner-card:hover {
+  transform: translateY(-4px);
+}
+
+.partner-emoji {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.partner-card h3 {
+  font-family: 'Playfair Display', var(--font-heading), serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.partner-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.partner-ampersand {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--accent-gold);
+  font-weight: 700;
+  align-self: center;
+}
+
+/* ═══════════════ INSTAGRAM / SOCIAL LINK ═══════════════ */
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  color: #E1306C;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: var(--transition-base);
+}
+
+.social-link:hover {
+  color: #c1255b;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .partner-section {
+    padding: 32px 20px;
+  }
+
+  .partner-heading {
+    font-size: 1.5rem;
+  }
+
+  .partner-grid {
+    gap: 20px;
+  }
+
+  .partner-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .partner-ampersand {
+    font-size: 1.5rem;
+  }
+}

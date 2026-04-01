@@ -20,7 +20,8 @@ const categoryIcons = {
   'Textile & Fiber': '🧶',
   'Paper Crafts': '📄',
   'Home Décor': '🏠',
-  'Craft Supplies': '🖌️'
+  'Craft Supplies': '🖌️',
+  'Pattachitra': '🙏'
 };
 
 // ═══════════════ API FUNCTIONS ═══════════════
@@ -255,6 +256,10 @@ function renderProductGrid(containerId, products) {
             </svg>
           </button>
         </div>
+        <a href="https://wa.me/918093319103?text=Hi! I'm interested in ${encodeURIComponent(product.name)} (₹${product.price.toLocaleString('en-IN')})" 
+           class="btn-whatsapp" target="_blank" rel="noopener" onclick="event.stopPropagation()">
+          💬 Request Details
+        </a>
       </div>
     </div>
   `).join('');
@@ -294,6 +299,10 @@ function openProductModal(productId) {
           Add to Cart
         </button>
       </div>
+      <a href="https://wa.me/918093319103?text=Hi! I'm interested in ${encodeURIComponent(product.name)} (₹${product.price.toLocaleString('en-IN')}). Can you share more details?" 
+         class="btn-whatsapp" target="_blank" rel="noopener" style="margin-top:12px; width:100%; justify-content:center; padding:12px 20px; font-size:0.9rem;">
+        💬 Request Details via WhatsApp
+      </a>
     </div>
   `;
 
@@ -572,9 +581,19 @@ window.addEventListener('scroll', () => {
   lastScroll = scrollTop;
 });
 
+// ═══════════════ WELCOME FLOAT ═══════════════
+
+function showWelcomeFloat() {
+  const msg = document.getElementById('welcomeMsg');
+  if (!msg) return;
+  setTimeout(() => msg.classList.add('show'), 1500);
+  setTimeout(() => msg.classList.remove('show'), 9000);
+}
+
 // ═══════════════ INITIALIZATION ═══════════════
 
 document.addEventListener('DOMContentLoaded', async () => {
   await loadHomePage();
   await fetchCart();
+  showWelcomeFloat();
 });
