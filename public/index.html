@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="O Jaga - Discover handcrafted art & craft treasures. Unique handmade products, artisan creations, and craft supplies.">
+  <title>O Jaga | Art & Craft Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo" id="logo-link" onclick="navigateTo('home')">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">O Jaga</span>
+      </a>
+      <div class="nav-links">
+        <a href="#" class="nav-link active" data-page="home" onclick="navigateTo('home')">Home</a>
+        <a href="#" class="nav-link" data-page="shop" onclick="navigateTo('shop')">Shop</a>
+        <a href="#" class="nav-link" data-page="about" onclick="navigateTo('about')">About</a>
+      </div>
+      <div class="nav-actions">
+        <div class="search-toggle" id="search-toggle" onclick="toggleSearch()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+          </svg>
+        </div>
+        <button class="cart-btn" id="cart-btn" onclick="toggleCart()">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+    <!-- Search Bar -->
+    <div class="search-bar" id="search-bar">
+      <div class="search-container">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+        </svg>
+        <input type="text" id="search-input" placeholder="Search art, crafts, supplies..." oninput="handleSearch(this.value)">
+        <button class="search-close" onclick="toggleSearch()">✕</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- HOME PAGE -->
+    <section id="page-home" class="page active">
+      <!-- Hero -->
+      <div class="hero">
+        <div class="hero-bg-art">
+          <div class="floating-shape shape-1">◆</div>
+          <div class="floating-shape shape-2">●</div>
+          <div class="floating-shape shape-3">▲</div>
+          <div class="floating-shape shape-4">◆</div>
+          <div class="floating-shape shape-5">●</div>
+        </div>
+        <div class="hero-content">
+          <div class="hero-badge">✦ Handcrafted with Love</div>
+          <h1 class="hero-title">
+            Discover the Art of <br>
+            <span class="gradient-text">Handmade Beauty</span>
+          </h1>
+          <p class="hero-description">
+            Curated collection of artisan-crafted treasures. From pottery to paintings, 
+            every piece tells a story of creativity and passion.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary btn-lg" onclick="navigateTo('shop')">
+              Explore Collection
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+            <button class="btn btn-outline btn-lg" onclick="navigateTo('about')">Our Story</button>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-number">500+</span>
+              <span class="stat-label">Handmade Products</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">Local Artisans</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+              <span class="stat-number">10k+</span>
+              <span class="stat-label">Happy Customers</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Categories -->
+      <div class="section">
+        <div class="section-header">
+          <h2 class="section-title">Shop by Category</h2>
+          <p class="section-subtitle">Find your creative passion</p>
+        </div>
+        <div class="categories-grid" id="categories-grid"></div>
+      </div>
+
+      <!-- Featured Products -->
+      <div class="section">
+        <div class="section-header">
+          <h2 class="section-title">Featured Creations</h2>
+          <p class="section-subtitle">Our most loved handcrafted pieces</p>
+        </div>
+        <div class="products-grid" id="featured-products"></div>
+        <div class="section-cta">
+          <button class="btn btn-primary" onclick="navigateTo('shop')">View All Products →</button>
+        </div>
+      </div>
+
+      <!-- Trust Bar -->
+      <div class="trust-bar">
+        <div class="trust-item">
+          <span class="trust-icon">🚚</span>
+          <div>
+            <strong>Free Shipping</strong>
+            <p>On orders above ₹999</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">🎨</span>
+          <div>
+            <strong>100% Handmade</strong>
+            <p>Crafted by local artisans</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">🔒</span>
+          <div>
+            <strong>Secure Payment</strong>
+            <p>Safe & encrypted checkout</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-icon">↩️</span>
+          <div>
+            <strong>Easy Returns</strong>
+            <p>7-day return policy</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOP PAGE -->
+    <section id="page-shop" class="page">
+      <div class="shop-header">
+        <h1>Our Collection</h1>
+        <p>Explore our handpicked artisan creations</p>
+      </div>
+      <div class="shop-layout">
+        <aside class="shop-sidebar">
+          <div class="filter-group">
+            <h3>Categories</h3>
+            <div id="category-filters"></div>
+          </div>
+          <div class="filter-group">
+            <h3>Sort By</h3>
+            <select id="sort-select" onchange="handleSort(this.value)">
+              <option value="">Default</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Highest Rated</option>
+            </select>
+          </div>
+        </aside>
+        <div class="shop-content">
+          <div class="shop-results-bar">
+            <span id="results-count"></span>
+          </div>
+          <div class="products-grid" id="shop-products"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT PAGE -->
+    <section id="page-about" class="page">
+      <div class="about-hero">
+        <h1>Our Story</h1>
+        <p class="about-lead">O Jaga was born from a simple belief — that true art deserves to be shared, and every artisan deserves a platform.</p>
+      </div>
+      <div class="about-content">
+        <div class="about-grid">
+          <div class="about-card">
+            <span class="about-emoji">🌿</span>
+            <h3>Rooted in Tradition</h3>
+            <p>We partner with artisan communities across India, preserving centuries-old craft traditions while giving them a modern marketplace.</p>
+          </div>
+          <div class="about-card">
+            <span class="about-emoji">🤝</span>
+            <h3>Fair & Ethical</h3>
+            <p>Every purchase directly supports independent artisans. We ensure fair wages and sustainable practices throughout our supply chain.</p>
+          </div>
+          <div class="about-card">
+            <span class="about-emoji">💚</span>
+            <h3>Eco-Conscious</h3>
+            <p>From biodegradable packaging to sustainably sourced materials, we're committed to minimizing our environmental footprint.</p>
+          </div>
+          <div class="about-card">
+            <span class="about-emoji">✨</span>
+            <h3>One of a Kind</h3>
+            <p>No mass production here. Each product is handcrafted, making every piece uniquely yours. Imperfections are celebrated.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHECKOUT PAGE -->
+    <section id="page-checkout" class="page">
+      <div class="checkout-container">
+        <h1>Checkout</h1>
+        <div class="checkout-grid">
+          <div class="checkout-form-section">
+            <h2>Delivery Details</h2>
+            <form id="checkout-form" onsubmit="placeOrder(event)">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="cust-name">Full Name</label>
+                  <input type="text" id="cust-name" name="name" required placeholder="Your full name">
+                </div>
+                <div class="form-group">
+                  <label for="cust-email">Email</label>
+                  <input type="email" id="cust-email" name="email" required placeholder="your@email.com">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="cust-phone">Phone Number</label>
+                <input type="tel" id="cust-phone" name="phone" required placeholder="10-digit phone number">
+              </div>
+              <div class="form-group">
+                <label for="cust-address">Address</label>
+                <textarea id="cust-address" name="address" required placeholder="Street address, apartment, etc." rows="3"></textarea>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="cust-city">City</label>
+                  <input type="text" id="cust-city" name="city" required placeholder="City">
+                </div>
+                <div class="form-group">
+                  <label for="cust-pincode">PIN Code</label>
+                  <input type="text" id="cust-pincode" name="pincode" required placeholder="6-digit PIN">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Payment Method</label>
+                <div class="payment-options">
+                  <label class="payment-option selected">
+                    <input type="radio" name="paymentMethod" value="cod" checked>
+                    <span class="payment-label">💵 Cash on Delivery</span>
+                  </label>
+                  <label class="payment-option">
+                    <input type="radio" name="paymentMethod" value="upi">
+                    <span class="payment-label">📱 UPI Payment</span>
+                  </label>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-lg btn-full" id="place-order-btn">
+                Place Order
+              </button>
+            </form>
+          </div>
+          <div class="checkout-summary">
+            <h2>Order Summary</h2>
+            <div id="checkout-items"></div>
+            <div id="checkout-totals"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORDER CONFIRMATION -->
+    <section id="page-confirmation" class="page">
+      <div class="confirmation-container" id="confirmation-content"></div>
+    </section>
+  </main>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+  <div class="cart-drawer" id="cart-drawer">
+    <div class="cart-header">
+      <h2>Your Cart <span class="cart-header-store">O Jaga</span></h2>
+      <button class="cart-close" onclick="toggleCart()">✕</button>
+    </div>
+    <div class="cart-body" id="cart-body">
+      <div class="cart-empty" id="cart-empty">
+        <span class="empty-icon">🛒</span>
+        <p>Your cart is empty</p>
+        <button class="btn btn-outline" onclick="toggleCart(); navigateTo('shop')">Start Shopping</button>
+      </div>
+      <div id="cart-items"></div>
+    </div>
+    <div class="cart-footer" id="cart-footer">
+      <div class="cart-totals" id="cart-totals"></div>
+      <button class="btn btn-primary btn-full" id="checkout-btn" onclick="toggleCart(); navigateTo('checkout')">
+        Proceed to Checkout
+      </button>
+    </div>
+  </div>
+
+  <!-- Product Detail Modal -->
+  <div class="modal-overlay" id="product-modal" onclick="closeModal(event)">
+    <div class="modal-content" id="modal-content"></div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">O Jaga</span>
+        <p>Bringing handcrafted art & craft treasures to your doorstep.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="#" onclick="navigateTo('home')">Home</a>
+        <a href="#" onclick="navigateTo('shop')">Shop</a>
+        <a href="#" onclick="navigateTo('about')">About Us</a>
+      </div>
+      <div class="footer-links">
+        <h4>Categories</h4>
+        <a href="#" onclick="navigateTo('shop'); filterByCategory('Painting & Drawing')">Painting & Drawing</a>
+        <a href="#" onclick="navigateTo('shop'); filterByCategory('Pottery & Ceramics')">Pottery & Ceramics</a>
+        <a href="#" onclick="navigateTo('shop'); filterByCategory('Textile & Fiber')">Textile & Fiber</a>
+      </div>
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <p>📧 hello@ojaga.com</p>
+        <p>📞 +91 98765 43210</p>
+        <p>📍 Bhubaneswar, Odisha</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 O Jaga. All rights reserved. Made with ❤️ in India.</p>
+    </div>
+  </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
