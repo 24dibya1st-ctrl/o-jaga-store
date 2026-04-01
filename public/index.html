@@ -22,6 +22,7 @@
         <a href="#" class="nav-link active" data-page="home" onclick="navigateTo('home')">Home</a>
         <a href="#" class="nav-link" data-page="shop" onclick="navigateTo('shop')">Shop</a>
         <a href="#" class="nav-link" data-page="about" onclick="navigateTo('about')">About</a>
+        <a href="#" class="nav-link" data-page="partner" onclick="navigateTo('partner')">Become a Partner</a>
         <a href="#" class="nav-link" onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})">Contact</a>
       </div>
       <div class="nav-actions">
@@ -236,6 +237,78 @@
             <span class="about-emoji">✨</span>
             <h3>One of a Kind</h3>
             <p>No mass production here. Each product is handcrafted, making every piece uniquely yours. Imperfections are celebrated.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARTIST PARTNER APPLICATION PAGE -->
+    <section id="page-partner" class="page">
+      <div class="partner-apply-hero">
+        <h1>Become an Artist Partner</h1>
+        <p>Join O Jaga's community of talented artisans from Odisha and beyond</p>
+      </div>
+      <div class="partner-apply-container">
+        <div class="partner-apply-grid">
+          <div class="partner-apply-info">
+            <div class="partner-info-card">
+              <span class="partner-info-icon">🎨</span>
+              <h3>Showcase Your Art</h3>
+              <p>Get your traditional art featured in our premium gallery and reach art lovers across India.</p>
+            </div>
+            <div class="partner-info-card">
+              <span class="partner-info-icon">🤝</span>
+              <h3>Fair Partnership</h3>
+              <p>We believe in fair pricing. You set your price, we handle marketing and delivery.</p>
+            </div>
+            <div class="partner-info-card">
+              <span class="partner-info-icon">🌟</span>
+              <h3>Grow Together</h3>
+              <p>Join 50+ artisans already partnered with O Jaga. Let's preserve Odisha's art heritage together.</p>
+            </div>
+            <div class="partner-info-card">
+              <span class="partner-info-icon">📱</span>
+              <h3>Easy Communication</h3>
+              <p>We'll reach out via WhatsApp within 48 hours of your application. No complicated processes.</p>
+            </div>
+          </div>
+          <div class="partner-apply-form-section">
+            <div class="apply-section">
+              <h2 class="apply-heading">Apply to Join O JAGA</h2>
+              <p class="apply-subtitle">Are you a traditional artist or craftsman? Fill out the form below and Saswati & Dibya will review your application.</p>
+              <form id="partner-form" onsubmit="submitPartnerApplication(event)">
+                <div class="form-group">
+                  <label for="artist-name">Full Name *</label>
+                  <input type="text" id="artist-name" name="name" required placeholder="Your full name">
+                </div>
+                <div class="form-group">
+                  <label for="artist-email">Email Address *</label>
+                  <input type="email" id="artist-email" name="email" required placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                  <label for="artist-phone">WhatsApp Number *</label>
+                  <input type="tel" id="artist-phone" name="phone" required placeholder="10-digit WhatsApp number">
+                </div>
+                <div class="form-group">
+                  <label for="artist-style">Your Art Style *</label>
+                  <textarea id="artist-style" name="artStyle" rows="4" required placeholder="Describe your art (e.g., Pattachitra, Stone Carving, Dhokra, Palm Leaf, Appliqué, Tribal Art...)"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="artist-portfolio">Portfolio / Social Media Link</label>
+                  <input type="url" id="artist-portfolio" name="portfolio" placeholder="https://instagram.com/yourart (optional)">
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-full" id="partner-submit-btn">
+                  🎨 Submit Application
+                </button>
+              </form>
+              <div id="partner-success" class="partner-success" style="display: none;">
+                <span class="success-icon">🎉</span>
+                <h3>Application Submitted!</h3>
+                <p>Thank you for your interest in joining O Jaga! Saswati & Dibya will review your work and contact you on WhatsApp within 48 hours.</p>
+                <p class="application-id" id="application-id"></p>
+                <button class="btn btn-outline" onclick="resetPartnerForm()">Submit Another Application</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

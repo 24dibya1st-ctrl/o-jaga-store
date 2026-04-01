@@ -1999,3 +1999,186 @@ input, textarea, select { font-family: inherit; }
     font-size: 1.5rem;
   }
 }
+
+/* ═══════════════ ARTIST PARTNER APPLICATION PAGE ═══════════════ */
+.partner-apply-hero {
+  text-align: center;
+  padding: 120px 24px 50px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(212, 168, 83, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 30% 80%, rgba(193, 116, 70, 0.06) 0%, transparent 50%),
+    var(--bg-primary);
+}
+
+.partner-apply-hero h1 {
+  font-family: 'Playfair Display', var(--font-heading), serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 8px;
+  background: var(--gradient-hero);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.partner-apply-hero p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.partner-apply-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.partner-apply-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* Info Cards */
+.partner-apply-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.partner-info-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  transition: var(--transition-smooth);
+}
+
+.partner-info-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(193, 116, 70, 0.3);
+  box-shadow: var(--shadow-glow);
+}
+
+.partner-info-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.partner-info-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.partner-info-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Application Form */
+.apply-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.apply-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-accent);
+}
+
+.apply-heading {
+  font-family: 'Playfair Display', var(--font-heading), serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.apply-subtitle {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+/* Success State */
+.partner-success {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.partner-success .success-icon {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.partner-success h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--accent-gold);
+}
+
+.partner-success p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.application-id {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--accent-primary) !important;
+  font-size: 1rem !important;
+  margin-top: 12px !important;
+  padding: 8px 16px;
+  background: rgba(193, 116, 70, 0.1);
+  border-radius: var(--radius-sm);
+  display: inline-block;
+}
+
+@media (max-width: 900px) {
+  .partner-apply-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .partner-apply-info {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .partner-apply-info {
+    grid-template-columns: 1fr;
+  }
+
+  .apply-section {
+    padding: 28px 20px;
+  }
+
+  .partner-apply-hero h1 {
+    font-size: 1.8rem;
+  }
+}

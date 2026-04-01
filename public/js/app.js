@@ -590,6 +590,59 @@ function showWelcomeFloat() {
   setTimeout(() => msg.classList.remove('show'), 9000);
 }
 
+// ═══════════════ ARTIST PARTNER APPLICATION ═══════════════
+
+async function submitPartnerApplication(event) {
+  event.preventDefault();
+
+  const btn = document.getElementById('partner-submit-btn');
+  const form = document.getElementById('partner-form');
+
+  const applicationData = {
+    name: document.getElementById('artist-name').value,
+    email: document.getElementById('artist-email').value,
+    phone: document.getElementById('artist-phone').value,
+    artStyle: document.getElementById('artist-style').value,
+    portfolio: document.getElementById('artist-portfolio').value || ''
+  };
+
+  btn.textContent = 'Submitting...';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch(`${API}/partners`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(applicationData)
+    });
+    const data = await res.json();
+
+    if (data.success) {
+      // Show success state
+      form.style.display = 'none';
+      const successDiv = document.getElementById('partner-success');
+      successDiv.style.display = 'block';
+      document.getElementById('application-id').textContent = `Application ID: ${data.application.id}`;
+      showToast('🎉 Application submitted successfully!');
+    } else {
+      showToast(data.message || 'Failed to submit. Please try again.', 'error');
+    }
+  } catch (err) {
+    showToast('Connection error. Please try again.', 'error');
+  }
+
+  btn.textContent = '🎨 Submit Application';
+  btn.disabled = false;
+}
+
+function resetPartnerForm() {
+  const form = document.getElementById('partner-form');
+  const successDiv = document.getElementById('partner-success');
+  form.reset();
+  form.style.display = 'block';
+  successDiv.style.display = 'none';
+}
+
 // ═══════════════ INITIALIZATION ═══════════════
 
 document.addEventListener('DOMContentLoaded', async () => {
